@@ -1,24 +1,7 @@
 // src/app/components/step-components/angular-experience-step/angular-experience-step.component.scss
-$text-dark: #333;
+@import '../../../shared/styles/shared-step-styles.scss';
 
-.question-section {
-  max-width: 1000px;
-  margin: 0 auto;
-  width: 100%;
-  padding: 1rem 0;
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 250px);
-  position: relative;
-  
-  .question-title {
-    font-size: 1.75rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    color: $text-dark;
-  }
-}
-
+// Additional styling specific to this step
 .radio-group {
   margin-bottom: 2rem;
   
@@ -37,21 +20,6 @@ $text-dark: #333;
     label {
       cursor: pointer;
       font-size: 1rem;
-    }
-  }
-}
-
-// Media Queries for Responsiveness
-@media (max-width: 768px) {
-  .question-section {
-    min-height: auto;
-  }
-}
-
-@media (max-width: 576px) {
-  .question-section {
-    .question-title {
-      font-size: 1.5rem;
     }
   }
 }
