@@ -1,0 +1,28 @@
+<!-- src/app/components/step-components/angular-experience-step/angular-experience-step.component.html -->
+<div class="question-section">
+    <div>
+      <h2 class="question-title">How long have you been an angular developer?</h2>
+  
+      <form [formGroup]="experienceForm">
+        <div class="radio-group">
+          <div *ngFor="let option of angularExperienceOptions" class="radio-item">
+            <input 
+              type="radio" 
+              formControlName="angularExperience" 
+              [id]="'exp-' + option" 
+              [value]="option" 
+            />
+            <label [for]="'exp-' + option">{{ option }}</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  
+    <app-navigation-buttons
+      [currentStep]="2"
+      [totalSteps]="5"
+      [isStepInvalid]="isStepInvalid"
+      (next)="onNext()"
+      (previous)="onPrevious()">
+    </app-navigation-buttons>
+  </div>

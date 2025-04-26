@@ -1,0 +1,97 @@
+// src/app/components/step-components/address-step/address-step.component.scss
+$text-dark: #333;
+$border-color: #ddd;
+
+.question-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 250px);
+  position: relative;
+  
+  .question-title {
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: $text-dark;
+  }
+  
+  .question-subtitle {
+    font-size: 1rem;
+    color: $text-dark;
+    margin-bottom: 2rem;
+  }
+}
+
+.address-form {
+  margin-bottom: 2rem;
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    
+    &.full-width {
+      width: 100%;
+    }
+    
+    label {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    
+    input {
+      padding: 0.75rem;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      font-size: 1rem;
+      
+      &:focus {
+        outline: none;
+        border-color: darken($border-color, 15%);
+      }
+    }
+  }
+  
+  .address-row {
+    display: flex;
+    gap: 1rem;
+    
+    .input-group {
+      flex: 2;
+    }
+    
+    .state-input {
+      flex: 1;
+    }
+    
+    .zip-input {
+      flex: 1;
+    }
+  }
+}
+
+// Media Queries for Responsiveness
+@media (max-width: 768px) {
+  .address-form {
+    .address-row {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+  
+  .question-section {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .question-section {
+    .question-title {
+      font-size: 1.5rem;
+    }
+  }
+}

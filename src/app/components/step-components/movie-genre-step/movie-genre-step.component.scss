@@ -1,0 +1,77 @@
+// src/app/components/step-components/movie-genre-step/movie-genre-step.component.scss
+$text-dark: #333;
+$blue-link: #2e74b5;
+
+.question-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 250px);
+  position: relative;
+  
+  .question-title {
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: $text-dark;
+  }
+  
+  .question-subtitle {
+    font-size: 1rem;
+    color: $text-dark;
+    margin-bottom: 2rem;
+  }
+}
+
+.checkbox-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  
+  .checkbox-column {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .checkbox-item {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    
+    input[type="checkbox"] {
+      margin-right: 0.5rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      cursor: pointer;
+    }
+    
+    label {
+      cursor: pointer;
+      font-size: 1rem;
+    }
+  }
+}
+
+// Media Queries for Responsiveness
+@media (max-width: 768px) {
+  .question-section {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .checkbox-grid {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .question-section {
+    .question-title {
+      font-size: 1.5rem;
+    }
+  }
+}

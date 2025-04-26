@@ -1,0 +1,42 @@
+<!-- src/app/components/step-components/movie-genre-step/movie-genre-step.component.html -->
+<div class="question-section">
+    <div>
+      <h2 class="question-title">My favorite movie genre is:</h2>
+      <p class="question-subtitle">(Check all that apply)</p>
+  
+      <form [formGroup]="genreForm">
+        <div class="checkbox-grid">
+          <div class="checkbox-column">
+            <div *ngFor="let genre of movieGenres.slice(0, 6)" class="checkbox-item">
+              <input 
+                type="checkbox" 
+                [id]="'genre-' + genre" 
+                [checked]="isGenreSelected(genre)"
+                (change)="onCheckboxChange(genre, $event)" 
+              />
+              <label [for]="'genre-' + genre">{{ genre }}</label>
+            </div>
+          </div>
+          <div class="checkbox-column">
+            <div *ngFor="let genre of movieGenres.slice(6)" class="checkbox-item">
+              <input 
+                type="checkbox" 
+                [id]="'genre-' + genre" 
+                [checked]="isGenreSelected(genre)"
+                (change)="onCheckboxChange(genre, $event)" 
+              />
+              <label [for]="'genre-' + genre">{{ genre }}</label>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  
+    <app-navigation-buttons
+      [currentStep]="1"
+      [totalSteps]="5"
+      [isStepInvalid]="isStepInvalid"
+      (next)="onNext()"
+      (exit)="onExit()">
+    </app-navigation-buttons>
+  </div>

@@ -1,0 +1,71 @@
+<!-- src/app/components/step-components/address-step/address-step.component.html -->
+<div class="question-section">
+    <div style="width: 700px;">
+      <h2 class="question-title">What is Jerry Seinfeld's address in Seinfeld?</h2>
+      <p class="question-subtitle">Address</p>
+  
+      <form [formGroup]="addressForm">
+        <div class="address-form">
+          <div class="input-group full-width">
+            <label for="address1">Address 1</label>
+            <input 
+              type="text" 
+              formControlName="address1" 
+              id="address1" 
+              placeholder="Address 1"
+            />
+          </div>
+  
+          <div class="input-group full-width">
+            <label for="address2">Address 2</label>
+            <input 
+              type="text" 
+              formControlName="address2" 
+              id="address2" 
+              placeholder="Address 2"
+            />
+          </div>
+  
+          <div class="address-row">
+            <div class="input-group">
+              <label for="city">City</label>
+              <input 
+                type="text" 
+                formControlName="city" 
+                id="city" 
+                placeholder="City"
+              />
+            </div>
+  
+            <div class="input-group state-input">
+              <label for="state">State</label>
+              <input 
+                type="text" 
+                formControlName="state" 
+                id="state" 
+                placeholder="State"
+              />
+            </div>
+  
+            <div class="input-group zip-input">
+              <label for="zipCode">Zip Code</label>
+              <input 
+                type="text" 
+                formControlName="zipCode" 
+                id="zipCode" 
+                placeholder="Zip code"
+              />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  
+    <app-navigation-buttons
+      [currentStep]="5"
+      [totalSteps]="5"
+      [isStepInvalid]="isStepInvalid"
+      (next)="onNext()"
+      (previous)="onPrevious()">
+    </app-navigation-buttons>
+  </div>

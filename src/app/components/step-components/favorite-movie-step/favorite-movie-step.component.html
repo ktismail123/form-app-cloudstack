@@ -1,0 +1,52 @@
+<!-- src/app/components/step-components/favorite-movie-step/favorite-movie-step.component.html -->
+<div class="question-section">
+    <div>
+      <h2 class="question-title">What is your favorite movie?</h2>
+      <p class="question-subtitle">
+        (If you have more than one favorite movie, select 
+        <span class="add-movie-link" (click)="addFavoriteMovie()">Add Favorite Movie</span> 
+        to enter its details.)
+      </p>
+  
+      <form [formGroup]="movieForm">
+        <div formArrayName="favoriteMovies" class="movie-inputs">
+          <div 
+            *ngFor="let movie of favoriteMoviesFormArray.controls; let i = index" 
+            [formGroupName]="i" 
+            class="movie-entry"
+          >
+            <div class="input-group">
+              <label [for]="'movie-title-' + i">Title</label>
+              <input 
+                type="text" 
+                formControlName="title" 
+                [id]="'movie-title-' + i" 
+                placeholder="Movie title"
+              />
+            </div>
+            <div class="input-group">
+              <label [for]="'movie-year-' + i">Year of Release</label>
+              <input 
+                type="text" 
+                formControlName="year" 
+                [id]="'movie-year-' + i" 
+                placeholder="Release year"
+              />
+            </div>
+          </div>
+        </div>
+  
+        <button type="button" class="add-movie-button" (click)="addFavoriteMovie()">
+          Add Favorite Movie
+        </button>
+      </form>
+    </div>
+  
+    <app-navigation-buttons
+      [currentStep]="3"
+      [totalSteps]="5"
+      [isStepInvalid]="isStepInvalid"
+      (next)="onNext()"
+      (previous)="onPrevious()">
+    </app-navigation-buttons>
+  </div>

@@ -1,0 +1,310 @@
+/* login.component.scss */
+
+// Custom variables
+$bee-yellow: #FCD857;
+$bee-light-yellow: #FFFAF0;
+$bee-dark: #333333;
+$bee-gray: #6C757D;
+$danger: #dc3545;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Custom mixins for responsive design
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (min-width: $breakpoint-md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  } @else if $breakpoint == xl {
+    @media (min-width: $breakpoint-xl) { @content; }
+  }
+}
+
+// Reset and base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  line-height: 1.6;
+  color: $bee-dark;
+}
+
+// Container styles
+.login-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $bee-light-yellow;
+  padding: 1rem;
+  
+  @include respond-to(md) {
+    padding: 2rem;
+  }
+  
+  @include respond-to(lg) {
+    padding: 4rem;
+  }
+}
+
+// Card styles
+.login-card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin: auto;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  
+  @include respond-to(lg) {
+    flex-direction: row;
+    min-height: 600px;
+  }
+}
+
+// Brand section
+.brand-section {
+  background-color: $bee-light-yellow;
+  padding: 2rem;
+  text-align: center;
+  
+  @include respond-to(lg) {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+  }
+  
+  .logo-container {
+    margin-bottom: 2rem;
+    
+    .logo {
+      height: 60px;
+      margin: 0 auto;
+      
+      @include respond-to(lg) {
+        margin: 0;
+      }
+    }
+  }
+  
+  .welcome-text {
+    color: $bee-dark;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .welcome-subtext {
+    color: $bee-gray;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+// Form section
+.form-section {
+  padding: 2rem;
+  
+  @include respond-to(lg) {
+    width: 60%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  form {
+    margin-bottom: 2rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+    
+    label {
+      color: $bee-dark;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    
+    .form-control {
+      width: 100%;
+      height: 50px;
+      border-radius: 8px;
+      border: 1px solid #E2E8F0;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      
+      &:focus {
+        outline: none;
+        border-color: $bee-yellow;
+        box-shadow: 0 0 0 3px rgba(252, 216, 87, 0.25);
+      }
+      
+      &.is-invalid {
+        border-color: $danger;
+        
+        &:focus {
+          box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.25);
+        }
+      }
+    }
+    
+    .invalid-feedback {
+      color: $danger;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+      display: block;
+    }
+  }
+  
+  .password-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    
+    .forgot-password {
+      color: $bee-gray;
+      font-size: 0.875rem;
+      text-decoration: none;
+      
+      &:hover {
+        color: $bee-dark;
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  .remember-me {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    
+    .form-check-input {
+      margin-right: 0.5rem;
+      width: 18px;
+      height: 18px;
+      
+      &:checked {
+        accent-color: $bee-yellow;
+      }
+    }
+    
+    .form-check-label {
+      color: $bee-gray;
+      font-size: 0.875rem;
+    }
+  }
+  
+  .login-btn {
+    width: 100%;
+    height: 50px;
+    background-color: $bee-yellow;
+    border: none;
+    border-radius: 8px;
+    color: $bee-dark;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &:hover {
+      background-color: darken($bee-yellow, 5%);
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(252, 216, 87, 0.4);
+    }
+    
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+    
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 0.5rem;
+      border: 3px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top: 3px solid $bee-dark;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  }
+  
+  .signup-section {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: $bee-gray;
+    font-size: 0.875rem;
+    
+    .signup-link {
+      color: $bee-dark;
+      font-weight: 500;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Footer section
+.footer {
+  margin-top: 2rem;
+  text-align: center;
+  color: $bee-gray;
+  font-size: 0.875rem;
+  
+  p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    
+    // @media (max-width: $breakpoint-sm - 1) {
+    //   flex-direction: column;
+    //   gap: 0.5rem;
+    // }
+    
+    a {
+      color: $bee-gray;
+      text-decoration: none;
+      
+      &:hover {
+        color: $bee-dark;
+        text-decoration: underline;
+      }
+    }
+  }
+}

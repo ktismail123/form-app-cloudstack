@@ -1,0 +1,29 @@
+<!-- src/app/components/step-components/movie-snack-step/movie-snack-step.component.html -->
+<div class="question-section">
+    <div>
+      <h2 class="question-title">Whats your Favorite movie snack?</h2>
+  
+      <form [formGroup]="snackForm">
+        <div class="radio-group-2">
+          <div *ngFor="let option of favoriteSnack; let i = index" 
+               [ngClass]="{'radio-item': true, }">
+            <input 
+              type="radio" 
+              formControlName="movieSnack" 
+              [id]="'snack-' + i" 
+              [value]="option" 
+            />
+            <label [for]="'snack-' + i">{{ option }}</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  
+    <app-navigation-buttons
+      [currentStep]="4"
+      [totalSteps]="5"
+      [isStepInvalid]="isStepInvalid"
+      (next)="onNext()"
+      (previous)="onPrevious()">
+    </app-navigation-buttons>
+  </div>
