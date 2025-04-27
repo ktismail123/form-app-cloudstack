@@ -3,6 +3,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { QuestionnaireComponent } from './components/questionnaire/questionnaire.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { NotFoundComponent } from './components/auth/not-found/not-found.component';
 
 export const routes: Routes = [
   {
@@ -27,6 +28,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'login'
+    component: NotFoundComponent
   }
 ];

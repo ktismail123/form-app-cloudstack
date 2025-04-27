@@ -1,0 +1,53 @@
+<!-- not-found.component.html -->
+<div class="not-found-container">
+    <div class="not-found-content">
+      <!-- Bee logo/illustration -->
+      <div class="bee-illustration">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+          <!-- Confused bee illustration -->
+          <g fill="none" stroke="#FCD857" stroke-width="4" stroke-linecap="round">
+            <!-- Bee body -->
+            <ellipse cx="200" cy="150" rx="60" ry="45" fill="#FCD857"/>
+            <!-- Stripes -->
+            <path d="M155 140 H245" stroke="#333" stroke-width="8"/>
+            <path d="M155 160 H245" stroke="#333" stroke-width="8"/>
+            <!-- Wings -->
+            <path d="M200 105 C170 85, 150 105, 160 125" fill="#FFF" stroke="#333" stroke-width="2"/>
+            <path d="M200 105 C230 85, 250 105, 240 125" fill="#FFF" stroke="#333" stroke-width="2"/>
+            <!-- Antennae -->
+            <path d="M200 105 L185 80" stroke="#333" stroke-width="3"/>
+            <path d="M200 105 L215 80" stroke="#333" stroke-width="3"/>
+            <circle cx="185" cy="80" r="5" fill="#333"/>
+            <circle cx="215" cy="80" r="5" fill="#333"/>
+            <!-- Confused expression -->
+            <circle cx="185" cy="140" r="8" fill="#333"/>
+            <circle cx="215" cy="140" r="8" fill="#333"/>
+            <path d="M190 165 Q200 170 210 165" stroke="#333" stroke-width="3" fill="none"/>
+            <!-- Question marks -->
+            <text x="140" y="100" font-family="Arial" font-size="30" fill="#333">?</text>
+            <text x="250" y="100" font-family="Arial" font-size="30" fill="#333">?</text>
+          </g>
+        </svg>
+      </div>
+      
+      <!-- Error message -->
+      <h1 class="error-title">404</h1>
+      <h2 class="error-subtitle">Oops! Page Not Found</h2>
+      <p class="error-message">
+        Our busy bees couldn't find the page you're looking for. 
+        It might have flown away or never existed in the first place.
+      </p>
+      
+      <!-- Action buttons -->
+      <div class="action-buttons">
+        <button class="primary-button" routerLink="/">
+            Go Back
+        </button>
+      </div>
+      
+      <!-- Additional help -->
+      <div class="help-section">
+        <p>Still need help? Contact our support team at <a href="mailto:support@thehelperbees.com">{{'support@thehelperbees.com'}}</a></p>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,155 @@
+// not-found.component.scss
+
+$bee-yellow: #FCD857;
+$bee-dark: #333333;
+$bee-gray: #6C757D;
+$bee-light-yellow: #FFFDF5;
+
+.not-found-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bee-light-yellow;
+  padding: 2rem;
+}
+
+.not-found-content {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.bee-illustration {
+  margin-bottom: 2rem;
+  
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.error-title {
+  font-size: 6rem;
+  font-weight: 700;
+  color: $bee-yellow;
+  margin: 0;
+  line-height: 1;
+  text-shadow: 2px 2px 0 $bee-dark;
+}
+
+.error-subtitle {
+  font-size: 2rem;
+  color: $bee-dark;
+  margin: 1rem 0;
+  font-weight: 600;
+}
+
+.error-message {
+  color: $bee-gray;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  
+  .primary-button {
+    background-color: $bee-yellow;
+    color: $bee-dark;
+    border: none;
+    padding: 0.875rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background-color: darken($bee-yellow, 5%);
+      transform: translateY(-2px);
+    }
+  }
+  
+  .secondary-button {
+    background-color: transparent;
+    color: $bee-dark;
+    border: 2px solid $bee-dark;
+    padding: 0.875rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background-color: rgba($bee-dark, 0.05);
+    }
+  }
+}
+
+.help-section {
+  color: $bee-gray;
+  font-size: 0.875rem;
+  
+  a {
+    color: $bee-yellow;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .error-title {
+    font-size: 4rem;
+  }
+  
+  .error-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    
+    button {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .error-title {
+    font-size: 3rem;
+  }
+  
+  .error-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .error-message {
+    font-size: 1rem;
+  }
+}
+
+// Animation for the confused bee
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.bee-illustration svg {
+  animation: float 3s ease-in-out infinite;
+}
