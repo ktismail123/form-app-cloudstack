@@ -22,7 +22,7 @@ export interface QuestionnaireData {
 })
 export class QuestionnaireService {
   private readonly totalSteps = 5;
-  private currentStepSubject = new BehaviorSubject<number>(1);
+  private currentStepSubject = new BehaviorSubject<number>(0);
   private formDataSubject = new BehaviorSubject<QuestionnaireData>({});
 
   // Expose observables for components to subscribe to

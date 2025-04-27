@@ -12,6 +12,8 @@ import { FavoriteMovieStepComponent } from '../step-components/favorite-movie-st
 import { MovieSnackStepComponent } from '../step-components/movie-snack-step/movie-snack-step.component';
 import { AddressStepComponent } from '../step-components/address-step/address-step.component';
 import { QuestionnaireService } from '../../service/questionnaire.service';
+import { LandingComponent } from "../step-components/landing/landing.component";
+import { CompletedComponent } from "../step-components/completed/completed.component";
 
 @Component({
   selector: 'app-questionnaire',
@@ -24,15 +26,17 @@ import { QuestionnaireService } from '../../service/questionnaire.service';
     AngularExperienceStepComponent,
     FavoriteMovieStepComponent,
     MovieSnackStepComponent,
-    AddressStepComponent
-  ],
+    AddressStepComponent,
+    LandingComponent,
+    CompletedComponent
+],
   templateUrl: './questionnaire.component.html',
   styleUrls: ['./questionnaire.component.scss']
 })
 export class QuestionnaireComponent implements OnInit {
   questionnaireForm: FormGroup;
   currentStep = 1;
-  totalSteps = 5;
+  totalSteps = 6;
 
   constructor(
     private fb: FormBuilder,
@@ -70,7 +74,8 @@ export class QuestionnaireComponent implements OnInit {
 
   onSubmit(): void {
     console.log('Form submitted:', this.questionnaireService.getFormData());
+   this.currentStep = 6;
     // Handle form submission logic here
-    this.router.navigate(['/']);
+    // this.router.navigate(['/']);
   }
 }

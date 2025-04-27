@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+/* Global Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Ensures that all form elements inherit the font family */
+  button, input, select, textarea {
+    font-family: inherit;
+  }
+  
+  /* Remove focus outlines for non-keyboard users, but keep them for keyboard navigation */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  /* Keep focus outlines for keyboard navigation */
+  :focus-visible {
+    outline: 2px solid #FCD857;
+    outline-offset: 2px;
+  }

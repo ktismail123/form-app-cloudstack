@@ -1,0 +1,34 @@
+<header class="app-header">
+    <div class="header-container">
+      <div class="logo-container">
+        <img src="assets/thb_logo.png" alt="The Helper Bees" class="logo">
+      </div>
+      
+      <div class="user-section" *ngIf="currentUser; else loginButton">
+        <div class="user-profile" (click)="toggleDropdown()">
+          <img [src]="currentUser.image" alt="Profile" class="user-avatar">
+          <span class="user-name">{{ currentUser.firstName }} {{ currentUser.lastName }}</span>
+          <i class="fa fa-chevron-down"></i>
+        </div>
+        
+        <div class="dropdown-menu" *ngIf="isDropdownOpen">
+          <div class="dropdown-header">
+            <img [src]="currentUser.image" alt="Profile" class="dropdown-avatar">
+            <div class="dropdown-user-info">
+              <h4>{{ currentUser.firstName }} {{ currentUser.lastName }}</h4>
+              <p>{{ currentUser.email }}</p>
+            </div>
+          </div>
+          <div class="dropdown-divider"></div>
+          <a routerLink="/profile">My Profile</a>
+          <a routerLink="/settings">Settings</a>
+          <div class="dropdown-divider"></div>
+          <a href="javascript:void(0)" (click)="logout()">Log Out</a>
+        </div>
+      </div>
+      
+      <ng-template #loginButton>
+        <a routerLink="/login" class="login-button">Log In</a>
+      </ng-template>
+    </div>
+  </header>

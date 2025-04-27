@@ -1,40 +1,57 @@
 <!-- src/app/components/questionnaire/questionnaire.component.html -->
+@if(currentStep === 0){
+
+    <app-landing (next)="nextStep()"/>
+}
+@else if(currentStep === 6){
+    <!-- <app-completed /> -->
+    <app-landing (next)="nextStep()"/>
+}
+@else {
+
 <div class="questionnaire-container">
     <!-- Progress Bar -->
-    <app-progress-bar 
-      
-      [currentStep]="currentStep" 
-      [totalSteps]="totalSteps">
-    </app-progress-bar>
-  
-    <!-- Step Components -->
-    <app-movie-genre-step 
-      *ngIf="currentStep === 1"
-      (next)="nextStep()"
-      (exit)="exitAssessment()">
-    </app-movie-genre-step>
-  
-    <app-angular-experience-step 
-      *ngIf="currentStep === 2"
-      (next)="nextStep()"
-      (previous)="previousStep()">
-    </app-angular-experience-step>
-  
-    <app-favorite-movie-step 
-      *ngIf="currentStep === 3"
-      (next)="nextStep()"
-      (previous)="previousStep()">
-    </app-favorite-movie-step>
-  
-    <app-movie-snack-step 
-      *ngIf="currentStep === 4"
-      (next)="nextStep()"
-      (previous)="previousStep()">
-    </app-movie-snack-step>
-  
-    <app-address-step 
-      *ngIf="currentStep === 5"
-      (next)="onSubmit()"
-      (previous)="previousStep()">
-    </app-address-step>
-  </div>
+  @if(currentStep > 0 && currentStep < 6){
+  <app-progress-bar [currentStep]="currentStep" [totalSteps]="totalSteps">
+  </app-progress-bar>
+  }
+
+
+
+  <!-- Step Components -->
+  <app-movie-genre-step
+    *ngIf="currentStep === 1"
+    (next)="nextStep()"
+    (exit)="exitAssessment()"
+  >
+  </app-movie-genre-step>
+
+  <app-angular-experience-step
+    *ngIf="currentStep === 2"
+    (next)="nextStep()"
+    (previous)="previousStep()"
+  >
+  </app-angular-experience-step>
+
+  <app-favorite-movie-step
+    *ngIf="currentStep === 3"
+    (next)="nextStep()"
+    (previous)="previousStep()"
+  >
+  </app-favorite-movie-step>
+
+  <app-movie-snack-step
+    *ngIf="currentStep === 4"
+    (next)="nextStep()"
+    (previous)="previousStep()"
+  >
+  </app-movie-snack-step>
+
+  <app-address-step
+    *ngIf="currentStep === 5"
+    (next)="onSubmit()"
+    (previous)="previousStep()"
+  >
+  </app-address-step>
+</div>
+}
