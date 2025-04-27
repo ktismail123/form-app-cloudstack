@@ -440,3 +440,29 @@ body {
     }
   }
 }
+
+// Add these styles to your login.component.scss
+
+.auth-error-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #fee2e2;  // Light red background
+  border: 1px solid #fecaca;  // Light red border
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  color: #dc3545;  // Red text
+  font-size: 0.875rem;
+  
+  .error-icon {
+    display: flex;
+    align-items: center;
+    
+    svg {
+      width: 20px;
+      height: 20px;
+      stroke: #dc3545;
+    }
+  }
+}
