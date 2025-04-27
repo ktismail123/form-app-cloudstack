@@ -1,5 +1,3 @@
-/* app.component.scss */
-
 // Variables
 $primary-cream: #faf7f2;
 $text-dark: #333;
@@ -10,6 +8,10 @@ $yellow-button: #f5d547;
 .profile-setup-container {
   display: flex;
   flex-direction: column;
+}
+
+.heading{
+  font-family: 'auto';
 }
 
 // Main Content
@@ -54,7 +56,7 @@ $yellow-button: #f5d547;
   
   .right-panel {
     width: 50%;
-    padding: 3.75rem; // 60px
+    padding: 95px !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,7 +70,7 @@ $yellow-button: #f5d547;
     }
     
     .description {
-      font-size: 1.125rem; // 18px
+      font-size: 15px; 
       color: $text-dark;
       margin-bottom: 2.5rem; // 40px
       line-height: 1.5;

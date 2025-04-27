@@ -11,7 +11,7 @@ export interface User {
   lastName: string;
   gender: string;
   image: string;
-  token: string;
+  accessToken: string;
 }
 
 @Injectable({
@@ -71,11 +71,11 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     const user = this.currentUserValue;
-    return !!user && !!user.token;
+    return !!user && !!user.accessToken;
   }
 
   getToken(): string | null {
     const user = this.currentUserValue;
-    return user ? user.token : null;
+    return user ? user.accessToken : null;
   }
 }

@@ -14,7 +14,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isSubmitting = false;
   loginError: string | null = null;
-  returnUrl: string = '/que'; // Default redirect to questionnaire
+  returnUrl: string = '/form'; // Default redirect to questionnaire
+  showPassword = false;
 
   constructor(
     private fb: FormBuilder,
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
     }
 
     // Get return url from route parameters or default to '/que'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/que';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/form';
   }
 
   onSubmit(): void {
@@ -75,6 +76,10 @@ export class LoginComponent implements OnInit {
           console.error('Login error', error);
         }
       });
+  }
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 
   forgotPassword(): void {

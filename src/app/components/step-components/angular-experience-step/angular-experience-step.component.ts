@@ -1,4 +1,3 @@
-// src/app/components/step-components/angular-experience-step/angular-experience-step.component.ts
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgFor } from '@angular/common';

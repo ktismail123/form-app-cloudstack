@@ -1,7 +1,6 @@
-// src/app/components/questionnaire/questionnaire.component.ts
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { ProgressBarComponent } from '../../shared/components/progress-bar/progress-bar.component';
 
@@ -12,8 +11,8 @@ import { FavoriteMovieStepComponent } from '../step-components/favorite-movie-st
 import { MovieSnackStepComponent } from '../step-components/movie-snack-step/movie-snack-step.component';
 import { AddressStepComponent } from '../step-components/address-step/address-step.component';
 import { QuestionnaireService } from '../../service/questionnaire.service';
-import { LandingComponent } from "../step-components/landing/landing.component";
-import { CompletedComponent } from "../step-components/completed/completed.component";
+import { LandingComponent } from '../step-components/landing/landing.component';
+import { CompletedComponent } from '../step-components/completed/completed.component';
 
 @Component({
   selector: 'app-questionnaire',
@@ -28,21 +27,22 @@ import { CompletedComponent } from "../step-components/completed/completed.compo
     MovieSnackStepComponent,
     AddressStepComponent,
     LandingComponent,
-    CompletedComponent
-],
+    CompletedComponent,
+  ],
   templateUrl: './questionnaire.component.html',
-  styleUrls: ['./questionnaire.component.scss']
+  styleUrls: ['./questionnaire.component.scss'],
 })
 export class QuestionnaireComponent implements OnInit {
   questionnaireForm: FormGroup;
   currentStep = 1;
   totalSteps = 6;
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private questionnaireService: QuestionnaireService
-  ) {
+  private fb = inject(FormBuilder);
+  private router = inject(Router);
+  private questionnaireService = inject(QuestionnaireService);
+  private route = inject(ActivatedRoute);
+
+  constructor() {
     this.questionnaireForm = this.fb.group({});
   }
 
@@ -51,9 +51,10 @@ export class QuestionnaireComponent implements OnInit {
     this.totalSteps = this.questionnaireService.getTotalSteps();
 
     // Subscribe to changes in the current step
-    this.questionnaireService.currentStep$.subscribe(step => {
-      this.currentStep = step;
+    this.questionnaireService.currentStep$.subscribe((step) => {
+      this.currentStep =  step;
     });
+    
   }
 
   getProgressValue(): number {
@@ -62,6 +63,7 @@ export class QuestionnaireComponent implements OnInit {
 
   nextStep(): void {
     this.questionnaireService.nextStep();
+    // this.updateQueryParams();
   }
 
   previousStep(): void {
@@ -72,9 +74,17 @@ export class QuestionnaireComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  updateQueryParams() {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { step: this.currentStep },
+      queryParamsHandling: 'merge', // merge with existing params
+    });
+  }
+
   onSubmit(): void {
     console.log('Form submitted:', this.questionnaireService.getFormData());
-   this.currentStep = 6;
+    this.currentStep = 6;
     // Handle form submission logic here
     // this.router.navigate(['/']);
   }

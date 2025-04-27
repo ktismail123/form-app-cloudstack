@@ -1,11 +1,8 @@
-<!-- src/app/components/questionnaire/questionnaire.component.html -->
 @if(currentStep === 0){
-
     <app-landing (next)="nextStep()"/>
 }
 @else if(currentStep === 6){
-    <!-- <app-completed /> -->
-    <app-landing (next)="nextStep()"/>
+    <app-completed />
 }
 @else {
 
@@ -15,8 +12,6 @@
   <app-progress-bar [currentStep]="currentStep" [totalSteps]="totalSteps">
   </app-progress-bar>
   }
-
-
 
   <!-- Step Components -->
   <app-movie-genre-step

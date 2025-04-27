@@ -1,4 +1,3 @@
-// src/app/components/step-components/movie-snack-step/movie-snack-step.component.ts
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgClass, NgFor } from '@angular/common';

@@ -1,0 +1,208 @@
+/* app.component.scss */
+
+// Variables
+$primary-cream: #faf7f2;
+$text-dark: #333;
+$yellow-button: #f5d547;
+
+
+// Container
+.profile-setup-container {
+  display: flex;
+  flex-direction: column;
+}
+
+// Main Content
+.main-content {
+  flex: 1;
+  display: flex;
+  min-height: calc(100vh - 150px);
+  
+  .left-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+    
+    .polygon-image-container {
+      width: 100%;
+      max-width: 31.25rem; // 500px
+      margin: 0 auto;
+      
+      .polygon {
+        transform: rotate(10deg);
+        width: 100%;
+        aspect-ratio: 1;
+        position: relative;
+        overflow: hidden;
+        clip-path: shape(from 98.11% 46.72%,curve to 98.11% 53.28% with 100% 50%,line to 76.89% 90.02%,curve to 71.21% 93.3% with 75% 93.3%,line to 28.79% 93.3%,curve to 23.11% 90.02% with 25% 93.3%,line to 1.89% 53.28%,curve to 1.89% 46.72% with 0% 50%,line to 23.11% 9.98%,curve to 28.79% 6.7% with 25% 6.7%,line to 71.21% 6.7%,curve to 76.89% 9.98% with 75% 6.7%);
+        
+        .senior-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+  }
+  
+  .right-panel {
+    width: 50%;
+    padding: 75px !important;
+    background-image: url('../../../../assets/Union.svg'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    .heading {
+      font-family: 'auto';
+      font-size: 2.25rem; // 36px
+      font-weight: 500;
+      margin-bottom: 1.25rem; // 20px
+      color: $text-dark;
+      line-height: 1.2;
+    }
+    
+    .description {
+      font-size: 15px;
+      color: $text-dark;
+      margin-bottom: 2.5rem; // 40px
+      line-height: 1.5;
+    }
+    
+    .start-button {
+      background-color: $yellow-button;
+      border: none;
+      padding: 0.9375rem; // 15px
+      font-size: 1.125rem; // 18px
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: 0.25rem; // 4px
+      max-width: 18.75rem; // 300px
+      width: 100%;
+      
+      &:hover {
+        background-color: darken($yellow-button, 5%);
+      }
+    }
+  }
+}
+
+
+// Media Queries for Responsiveness
+
+// Large screens (laptops and desktops)
+@media (max-width: 1200px) {
+  .main-content {
+    .right-panel {
+      padding: 2.5rem; // 40px
+      
+      .heading {
+        font-size: 2rem; // 32px
+      }
+    }
+  }
+}
+
+// Medium screens (tablets)
+@media (max-width: 992px) {
+  .main-content {
+    flex-direction: column;
+    
+    .left-panel, .right-panel {
+      width: 100%;
+    }
+    
+    .left-panel {
+      padding: 3rem 1.25rem;
+      min-height: 25rem; // Ensure enough space for the polygon
+      
+      .polygon-image-container {
+        max-width: 25rem; // Slightly smaller on tablets
+      }
+    }
+    
+    .right-panel {
+      padding: 2.5rem 1.25rem;
+      align-items: center;
+      text-align: center;
+      
+      .heading {
+        font-size: 1.875rem; // 30px
+      }
+      
+      .start-button {
+        max-width: 15.625rem; // 250px
+      }
+    }
+  }
+}
+
+// Small screens (mobile phones)
+@media (max-width: 576px) {
+  .header {
+    padding: 0.75rem;
+    
+    .logo img {
+      height: 2rem;
+    }
+  }
+  
+  .main-content {
+    .left-panel {
+      padding: 2rem 1rem;
+      min-height: 20rem;
+      
+      .polygon-image-container {
+        max-width: 18.75rem; // 300px
+      }
+      
+      .polygon {
+        transform: rotate(5deg); // Less rotation on mobile
+      }
+    }
+    
+    .right-panel {
+      padding: 2rem 1rem;
+      
+      .heading {
+        font-size: 1.5rem; // 24px
+        margin-bottom: 1rem;
+      }
+      
+      .description {
+        font-size: 1rem; // 16px
+        margin-bottom: 1.5rem;
+      }
+      
+      .start-button {
+        max-width: 100%;
+        padding: 0.75rem;
+      }
+    }
+  }
+
+}
+
+// Extra small screens
+@media (max-width: 375px) {
+  .main-content {
+    .left-panel {
+      min-height: 18rem;
+      
+      .polygon-image-container {
+        max-width: 15.625rem; // 250px
+      }
+    }
+    
+    .right-panel {
+      .heading {
+        font-size: 1.375rem; // 22px
+      }
+    }
+  }
+}

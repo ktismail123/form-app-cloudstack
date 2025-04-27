@@ -1,13 +1,16 @@
-// src/app/components/step-components/angular-experience-step/angular-experience-step.component.scss
 @import '../../../shared/styles/shared-step-styles.scss';
 
 // Additional styling specific to this step
 .radio-group {
-  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  // margin-top: 10px;
   
   .radio-item {
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
     display: flex;
+    gap: 5px;
     align-items: center;
     
     input[type="radio"] {

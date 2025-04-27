@@ -1,4 +1,3 @@
-// src/app/components/step-components/movie-genre-step/movie-genre-step.component.ts
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';

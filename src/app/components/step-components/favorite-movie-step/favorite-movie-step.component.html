@@ -1,20 +1,20 @@
-<!-- src/app/components/step-components/favorite-movie-step/favorite-movie-step.component.html -->
 <div class="question-section">
-    <div class="question-content">
-      <h2 class="question-title">What is your favorite movie?</h2>
-      <p class="question-subtitle">
-        (If you have more than one favorite movie, select 
-        <span class="add-movie-link" (click)="addFavoriteMovie()">Add Favorite Movie</span> 
-        to enter its details.)
-      </p>
-  
-      <form [formGroup]="movieForm">
-        <div formArrayName="favoriteMovies" class="movie-inputs">
-          <div 
-            *ngFor="let movie of favoriteMoviesFormArray.controls; let i = index" 
-            [formGroupName]="i" 
-            class="movie-entry"
-          >
+  <div class="question-content">
+    <h2 class="question-title">What is your favorite movie?</h2>
+    <p class="question-subtitle">
+      (If you have more than one favorite movie, select 
+      <span class="add-movie-link" (click)="addFavoriteMovie()">Add Favorite Movie</span> 
+      to enter its details.)
+    </p>
+
+    <form [formGroup]="movieForm">
+      <div formArrayName="favoriteMovies" class="movie-inputs">
+        <div 
+          *ngFor="let movie of favoriteMoviesFormArray.controls; let i = index" 
+          [formGroupName]="i" 
+          class="movie-entry"
+        >
+          <div class="movie-input-row">
             <div class="input-group">
               <label [for]="'movie-title-' + i">Title</label>
               <input 
@@ -33,20 +33,30 @@
                 placeholder="Release year"
               />
             </div>
+            <button 
+              *ngIf="i > 0"
+              type="button" 
+              class="delete-movie-button" 
+              (click)="removeFavoriteMovie(i)"
+              [attr.aria-label]="'Remove movie ' + (i + 1)"
+            >
+              <span class="delete-icon">&times;</span>
+            </button>
           </div>
         </div>
-  
-        <button type="button" class="add-movie-button" (click)="addFavoriteMovie()">
-          Add Favorite Movie
-        </button>
-      </form>
-    </div>
-  
-    <app-navigation-buttons
-      [currentStep]="3"
-      [totalSteps]="5"
-      [isStepInvalid]="isStepInvalid"
-      (next)="onNext()"
-      (previous)="onPrevious()">
-    </app-navigation-buttons>
+      </div>
+
+      <button type="button" class="add-movie-button" (click)="addFavoriteMovie()">
+        Add Favorite Movie
+      </button>
+    </form>
   </div>
+
+  <app-navigation-buttons
+    [currentStep]="3"
+    [totalSteps]="5"
+    [isStepInvalid]="isStepInvalid"
+    (next)="onNext()"
+    (previous)="onPrevious()">
+  </app-navigation-buttons>
+</div>

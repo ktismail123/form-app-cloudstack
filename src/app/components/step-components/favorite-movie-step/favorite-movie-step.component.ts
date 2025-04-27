@@ -1,14 +1,13 @@
-// src/app/components/step-components/favorite-movie-step/favorite-movie-step.component.ts
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { NavigationButtonsComponent } from '../../../shared/components/navigation-buttons/navigation-buttons.component';
 import { QuestionnaireService } from '../../../service/questionnaire.service';
 
 @Component({
   selector: 'app-favorite-movie-step',
   standalone: true,
-  imports: [ReactiveFormsModule, NgFor, NavigationButtonsComponent],
+  imports: [ReactiveFormsModule, NgFor, NgIf, NavigationButtonsComponent],
   templateUrl: './favorite-movie-step.component.html',
   styleUrls: ['./favorite-movie-step.component.scss']
 })
@@ -57,6 +56,12 @@ export class FavoriteMovieStepComponent implements OnInit {
 
   addFavoriteMovie(): void {
     this.favoriteMoviesFormArray.push(this.createMovieFormGroup());
+  }
+
+  removeFavoriteMovie(index: number): void {
+    if (this.favoriteMoviesFormArray.length > 1) {
+      this.favoriteMoviesFormArray.removeAt(index);
+    }
   }
 
   onNext(): void {

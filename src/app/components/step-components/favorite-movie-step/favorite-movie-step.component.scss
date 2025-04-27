@@ -1,88 +1,111 @@
 
-@import '../../../shared/styles/shared-step-styles.scss';
-
+$primary-cream: #faf7f2;
+$text-dark: #333;
+$yellow-button: #f5d547;
 $blue-link: #2e74b5;
 $border-color: #ddd;
+$error-color: #d9534f;
 
-// Additional styling specific to this step
+.question-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 250px);
+  position: relative;
+  
+  .question-content {
+    flex: 1;
+  }
+  
+  .question-title {
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: $text-dark;
+  }
+  
+  .question-subtitle {
+    font-size: 1rem;
+    color: $text-dark;
+    margin-bottom: 2rem;
+    
+    .add-movie-link {
+      color: $blue-link;
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: 500;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
 .movie-inputs {
   margin-bottom: 1.5rem;
   
   .movie-entry {
-    display: flex;
-    gap: 1rem;
     margin-bottom: 1rem;
     
-    .input-group {
-      flex: 1;
+    .movie-input-row {
       display: flex;
-      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+  }
+  
+  .input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    
+    label {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    
+    input {
+      padding: 0.75rem;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      font-size: 1rem;
       
-      label {
-        margin-bottom: 0.5rem;
-        font-size: 1rem;
-      }
-      
-      input {
-        padding: 0.75rem;
-        border: 1px solid $border-color;
-        border-radius: 4px;
-        font-size: 1rem;
-        
-        &:focus {
-          outline: none;
-          border-color: darken($border-color, 15%);
-        }
+      &:focus {
+        outline: none;
+        border-color: darken($border-color, 15%);
       }
     }
   }
 }
 
-.add-movie-button {
-  background-color: transparent;
-  border: 1px solid $blue-link;
-  color: $blue-link;
-  padding: 0.625rem 1rem;
-  font-size: 1rem;
+.delete-movie-button {
+  background: none;
+  border: none;
+  color: $error-color;
   cursor: pointer;
-  border-radius: 4px;
-  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  padding: 0;
+  margin-top: 2rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
   
   &:hover {
-    background-color: rgba($blue-link, 0.1);
+    color: darken($error-color, 10%);
+    transform: scale(1.1);
   }
-}
-
-.add-movie-link {
-  color: $blue-link;
-  text-decoration: none;
-  cursor: pointer;
-  font-weight: 500;
   
-  &:hover {
-    text-decoration: underline;
+  .delete-icon {
+    line-height: 1;
   }
 }
-
-// Media Queries for Responsiveness
-@media (max-width: 768px) {
-  .movie-inputs {
-    .movie-entry {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-  }
-}
-// -size: 1rem;
-        
-//         &:focus {
-//           outline: none;
-//           border-color: darken($border-color, 15%);
-//         }
-//       }
-//     }
-//   }
-// }
 
 .add-movie-button {
   background-color: transparent;
@@ -103,13 +126,16 @@ $border-color: #ddd;
 @media (max-width: 768px) {
   .movie-inputs {
     .movie-entry {
-      flex-direction: column;
-      gap: 0.5rem;
+      .movie-input-row {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
     }
   }
   
-  .question-section {
-    min-height: auto;
+  .delete-movie-button {
+    align-self: flex-end;
+    margin-top: 0.5rem;
   }
 }
 
