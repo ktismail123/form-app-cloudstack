@@ -22,7 +22,7 @@ export class MovieSnackStepComponent implements OnInit {
     'Junior Mints',
     'Skittles',
     'Nachos',
-    'Milk Dus',
+    'Milk Duds',
     'I only watch Criterion Collection films at Arthouses that disallow snacks because there might be a crinkling sound that disrupts other patrons.',
   ];
 
