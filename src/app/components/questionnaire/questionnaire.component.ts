@@ -52,8 +52,6 @@ export class QuestionnaireComponent implements OnInit {
 
     // Subscribe to changes in the current step
     this.questionnaireService.currentStep$.subscribe((step) => {
-      console.log(step);
-      
       this.currentStep =  step;
     });
     
@@ -76,7 +74,7 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   completed(){
-    this.questionnaireService.resetForm();
+    this.router.navigateByUrl('/result');
   }
 
   updateQueryParams() {
