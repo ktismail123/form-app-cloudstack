@@ -4,6 +4,7 @@ import { QuestionnaireComponent } from './components/questionnaire/questionnaire
 import { AuthGuard } from './core/guards/auth.guard';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { NotFoundComponent } from './components/auth/not-found/not-found.component';
+import { QuestionnaireResultsComponent } from './components/questionnaire-results/questionnaire-results.component';
 
 export const routes: Routes = [
   {
@@ -23,6 +24,10 @@ export const routes: Routes = [
       {
         path: 'form',
         component: QuestionnaireComponent
+      },
+      {
+        path: 'result',
+        component: QuestionnaireResultsComponent
       }
     ]
   },
