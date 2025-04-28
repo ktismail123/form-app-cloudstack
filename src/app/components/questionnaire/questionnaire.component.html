@@ -2,7 +2,7 @@
     <app-landing (next)="nextStep()"/>
 }
 @else if(currentStep === 6){
-    <app-completed />
+    <app-completed (next)="completed()"/>
 }
 @else {
 

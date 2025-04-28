@@ -52,6 +52,8 @@ export class QuestionnaireComponent implements OnInit {
 
     // Subscribe to changes in the current step
     this.questionnaireService.currentStep$.subscribe((step) => {
+      console.log(step);
+      
       this.currentStep =  step;
     });
     
@@ -63,7 +65,6 @@ export class QuestionnaireComponent implements OnInit {
 
   nextStep(): void {
     this.questionnaireService.nextStep();
-    // this.updateQueryParams();
   }
 
   previousStep(): void {
@@ -71,7 +72,11 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   exitAssessment(): void {
-    this.router.navigate(['/']);
+    this.questionnaireService.resetForm();
+  }
+
+  completed(){
+    this.questionnaireService.resetForm();
   }
 
   updateQueryParams() {
@@ -85,7 +90,5 @@ export class QuestionnaireComponent implements OnInit {
   onSubmit(): void {
     console.log('Form submitted:', this.questionnaireService.getFormData());
     this.currentStep = 6;
-    // Handle form submission logic here
-    // this.router.navigate(['/']);
   }
 }

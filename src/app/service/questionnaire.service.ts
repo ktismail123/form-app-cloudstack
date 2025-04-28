@@ -22,14 +22,13 @@ export interface QuestionnaireData {
 })
 export class QuestionnaireService {
   private readonly totalSteps = 5;
-  private currentStepSubject = new BehaviorSubject<number>(0);
+  public currentStepSubject = new BehaviorSubject<number>(0);
   private formDataSubject = new BehaviorSubject<QuestionnaireData>({});
 
   // Expose observables for components to subscribe to
   currentStep$: Observable<number> = this.currentStepSubject.asObservable();
   formData$: Observable<QuestionnaireData> = this.formDataSubject.asObservable();
 
-  constructor() {}
 
   getCurrentStep(): number {
     return this.currentStepSubject.value;
@@ -73,7 +72,7 @@ export class QuestionnaireService {
   }
 
   resetForm(): void {
-    this.currentStepSubject.next(1);
+    this.currentStepSubject.next(0);
     this.formDataSubject.next({});
   }
 }

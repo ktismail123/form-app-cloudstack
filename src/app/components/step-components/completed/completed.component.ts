@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-completed',
@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './completed.component.scss'
 })
 export class CompletedComponent {
+  @Output() next = new EventEmitter<void>();
 
   onNext(): void {
+    this.next.emit();
   }
 }
